@@ -123,5 +123,10 @@ namespace ToDoList
         {
             this.Close();
         }
+
+        private void ButtonAbout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("ToDoList Applikation\n\nAutor: Felix Otte\nVersion: 0.6", "About");
+        }
     }
 }
