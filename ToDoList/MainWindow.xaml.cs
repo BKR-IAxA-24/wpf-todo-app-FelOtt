@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace ToDoList
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         List<Task> tasks = new List<Task>();
