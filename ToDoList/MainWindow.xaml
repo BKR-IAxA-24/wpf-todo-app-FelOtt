@@ -8,12 +8,15 @@
         Title="MainWindow" Height="450" Width="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="New" Width="75" Margin="5" Click="ButtonNew_Click"></Button>
-                <Button Content="Load" Width="75" Margin="5" Click="ButtonLoad_Click"></Button>
-                <Button Content="Save" Width="75" Margin="5" Click="ButtonSave_Click"></Button>
-                <Button Content="Exit" Width="75" Margin="5" Click="ButtonExit_Click"></Button>
-            </StackPanel>
+            <Menu>
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" Click="ButtonNew_Click"></MenuItem>
+                    <MenuItem Header="_Load" Click="ButtonLoad_Click"></MenuItem>
+                    <MenuItem Header="_Save" Click="ButtonSave_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Exit" Click="ButtonExit_Click"></MenuItem>
+
+            </Menu>
             <DockPanel>
                 <TextBox Name="txtEingabe" Width="200" HorizontalAlignment="Left" Margin="5"></TextBox>
                 <Button Content="Add" Width="50" HorizontalAlignment="Right" Margin="5" Click="ButtonAdd_Click"></Button>

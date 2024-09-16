@@ -116,6 +116,7 @@ namespace ToDoList
         private void ButtonNew_Click(object sender, RoutedEventArgs e)
         {
             tasks.Clear();
+            UpdateList();
         }
 
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
