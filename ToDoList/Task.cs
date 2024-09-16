@@ -25,6 +25,11 @@ namespace ToDoList
             isComplete = true;
         }
 
+        public void WriteDate(DateTime date)
+        {
+            this.date = date;
+        }
+
         public override string ToString()
         {
             //if (isComplete) is true say completed else say not completed

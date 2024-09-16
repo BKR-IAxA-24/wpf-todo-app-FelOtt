@@ -8,15 +8,21 @@
         Title="MainWindow" Height="450" Width="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel>
-                <DockPanel>
-                    <TextBox Name="txtEingabe" Width="200" HorizontalAlignment="Left" Margin="5"></TextBox>
-                    <Button Content="Add" Width="50" HorizontalAlignment="Right" Margin="5" Click="ButtonAdd_Click"></Button>
-                </DockPanel>
-                <ListBox Name="lstTasks" Margin="5" Height="200"></ListBox>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Delete" Width="75" Margin="5" Click="ButtonDelete_Click"></Button>
-                    <Button Content="Complete" Width="75" Margin="5" Click="ButtonComplete_Click"></Button>
-                </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="New" Width="75" Margin="5" Click="ButtonNew_Click"></Button>
+                <Button Content="Load" Width="75" Margin="5" Click="ButtonLoad_Click"></Button>
+                <Button Content="Save" Width="75" Margin="5" Click="ButtonSave_Click"></Button>
+                <Button Content="Exit" Width="75" Margin="5" Click="ButtonExit_Click"></Button>
             </StackPanel>
+            <DockPanel>
+                <TextBox Name="txtEingabe" Width="200" HorizontalAlignment="Left" Margin="5"></TextBox>
+                <Button Content="Add" Width="50" HorizontalAlignment="Right" Margin="5" Click="ButtonAdd_Click"></Button>
+            </DockPanel>
+            <ListBox Name="lstTasks" Margin="5" Height="200"></ListBox>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Delete" Width="75" Margin="5" Click="ButtonDelete_Click"></Button>
+                <Button Content="Complete" Width="75" Margin="5" Click="ButtonComplete_Click"></Button>
+            </StackPanel>
+        </StackPanel>
     </ScrollViewer>
 </Window>

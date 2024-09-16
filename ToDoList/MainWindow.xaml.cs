@@ -1,13 +1,5 @@
-﻿using System.Text;
+﻿using Microsoft.Win32;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ToDoList
 {
@@ -20,6 +12,8 @@ namespace ToDoList
         public MainWindow()
         {
             InitializeComponent();
+            // set background color
+            this.Background = System.Windows.Media.Brushes.Gray;
         }
 
         public void UpdateList()
@@ -61,6 +55,72 @@ namespace ToDoList
                 tasks[index].CompleteTask();
                 UpdateList();
             }
+        }
+
+        private void ButtonLoad_Click(object sender, RoutedEventArgs e)
+        {
+            // open file explorer to select .tasks file
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Task files (*.tasks)|*.tasks";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filename = openFileDialog.FileName;
+
+                LoadTasks(filename);
+
+                UpdateList();
+            }
+        }
+
+        public void LoadTasks(string filename)
+        {
+            tasks.Clear();
+            string[] lines = System.IO.File.ReadAllLines(filename);
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                Task task = new Task(parts[0]);
+                if (parts[1] == "True")
+                {
+                    task.CompleteTask();
+                }
+                task.WriteDate(DateTime.Parse(parts[2]));
+
+                tasks.Add(task);
+            }
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Task files (*.tasks)|*.tasks";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string filename = saveFileDialog.FileName;
+                SaveTasks(filename);
+            }
+        }
+
+
+        public void SaveTasks(string filename)
+        {
+            List<string> lines = new List<string>();
+            foreach (Task task in tasks)
+            {
+                string line = $"{task.Description};{task.isComplete};{task.date}";
+                lines.Add(line);
+            }
+            System.IO.File.WriteAllLines(filename, lines);
+        }
+
+        private void ButtonNew_Click(object sender, RoutedEventArgs e)
+        {
+            tasks.Clear();
+        }
+
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
