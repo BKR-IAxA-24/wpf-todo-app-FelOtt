@@ -12,7 +12,6 @@ namespace ToDoList
         public MainWindow()
         {
             InitializeComponent();
-            // set background color
             this.Background = System.Windows.Media.Brushes.Gray;
         }
 
@@ -59,7 +58,6 @@ namespace ToDoList
 
         private void ButtonLoad_Click(object sender, RoutedEventArgs e)
         {
-            // open file explorer to select .tasks file
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Task files (*.tasks)|*.tasks";
             if (openFileDialog.ShowDialog() == true)
